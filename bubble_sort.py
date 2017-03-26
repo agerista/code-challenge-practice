@@ -1,31 +1,32 @@
-def bubble_sort(num, array):
+def bubble_sort(n, lst):
     """sorts a given list from smallest to largest
 
     >>> bubble_sort(3, [1, 2, 3])
     Array is sorted in 0 swaps.
     First Element: 1
     Last Element: 3
+
+    >>> bubble_sort(3, [3, 2, 1])
+    Array is sorted in 3 swaps.
+    First Element: 1
+    Last Element: 3
     """
 
-    count = 0
-    i = 0
+    sorts = 0
 
-    while i in range(len(array) - 1):
+    if len(lst) < 2:
+        return sorts
 
-        sorts = 0
+    for i in range(len(lst) - 1, 0, -1):
+        for j in range(i):
 
-        if array[i] > array[i + 1]:
-            array[i + 1], array[i] = array[i], array[i + 1]
-            count += 1
-            sorts += 1
-            i += 1
+            if lst[j] > lst[j + 1]:
+                lst[j + 1], lst[j] = lst[j], lst[j + 1]
+                sorts += 1
 
-        if sorts == 0:
-            break
-
-    print "Array is sorted in %s swaps." % count
-    print "First Element: %s" % array[0]
-    print "Last Element: %s" % array[-1]
+    print "Array is sorted in %s swaps." % sorts
+    print "First Element: %s" % lst[0]
+    print "Last Element: %s" % lst[-1]
 
 ################################################################################
 if __name__ == '__main__':
