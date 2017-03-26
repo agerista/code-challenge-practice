@@ -1,7 +1,7 @@
 def is_matched(expression):
     """
-    Given a string of brackets, determine whether the brackets are balanced. 
-    
+    Given a string of brackets, determine whether the brackets are balanced.
+
     >>> is_matched("{[()]}")
     True
 
@@ -38,6 +38,43 @@ def is_matched(expression):
 
     if len(balance) == 0:
         return True
+
+
+def is_matched2(expression):
+    """Given a string of brackets, determine whether the brackets are balanced.
+
+    >>> is_matched("{[}")
+    False
+
+    >>> is_matched("{[(])}")
+    False
+
+    >>> is_matched("{{[[(())]]}}")
+    True
+    """
+
+    balanced = {"{": "}",
+                "[": "]",
+                "(": ")"
+                }
+    stack = []
+
+    if len(expression) < 2 or len(expression) % 2 != 0:
+        return False
+
+
+    for i in expression:
+
+        if i in balanced.keys():
+            stack.append(balanced[i])
+
+        elif len(stack) > 0 and i == stack[-1]:
+            stack.pop()
+
+        else:
+            return False
+
+    return True
 
 ################################################################################
 if __name__ == '__main__':
