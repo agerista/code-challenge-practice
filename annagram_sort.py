@@ -1,5 +1,12 @@
 def letter_counts(s):
-    """counts letters in a string"""
+    """counts letters in a string
+
+    >>> letter_counts("apple")
+    {'a': 1, 'e': 1, 'l': 1, 'p': 2}
+
+    >>> letter_counts("bob")
+    {'b': 2, 'o': 1}
+    """
 
     counts = {}
 
@@ -11,9 +18,18 @@ def letter_counts(s):
         else:
             counts[letter] += 1
 
+    return counts
+
 
 def matches(s1, s2):
-    """checks to see if strings are annagrams of each other"""
+    """checks to see if strings are annagrams of each other
+
+    >>> matches("apple", "paple")
+    True
+
+    >>> matches("apple", "bob")
+    False
+    """
 
     return letter_counts(s1) == letter_counts(s2)
 
