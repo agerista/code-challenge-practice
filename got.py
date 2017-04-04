@@ -18,7 +18,26 @@ def possible_palindromes(astr):
 
     """
 
-    
+    pal = {}
+    final = []
+
+    for letter in astr:
+
+        if letter not in pal:
+
+            pal[letter] = 1
+
+        else:
+            pal[letter] += 1
+
+    for key, value in pal.iteritems():
+        check how many values are odd
+            if more than one odd
+                not palindrome
+            else:
+                palindrome
+
+
 
 
 
@@ -28,3 +47,14 @@ def possible_palindromes(astr):
         print("NO")
     else:
         print("YES")
+
+
+################################################################################
+if __name__ == "__main__":
+    import doctest
+
+    print
+    result = doctest.testmod()
+    if not result.failed:
+        print "ALL TESTS PASSED. GOOD WORK!"
+    print
