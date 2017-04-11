@@ -40,11 +40,18 @@ def reverse_linked_list(head):
 
     while current:
 
-        if current.next != None:
-            previous = current
-            current = previous
-            next = current
-            current = next
+        next = current.next
+        current.next = previous
+        previous = current
+        current = next
+
+    return previous
+
+
+            # previous = current
+            # current = previous
+            # next = current
+            # current = next
 
 
 ################################################################################
