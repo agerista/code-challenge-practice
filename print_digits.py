@@ -12,14 +12,10 @@ def print_digits(num):
     1
     """
 
-    while num:
-
-        if num > 9:
-            print num % 10
-            num = num / 10
-
-        else:
-            print num
+    while num > 9:
+        print num % 10
+        num = num / 10
+    print num
 
 ################################################################################
 if __name__ == "__main__":
