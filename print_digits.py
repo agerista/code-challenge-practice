@@ -20,3 +20,13 @@ def print_digits(num):
 
         else:
             print num
+
+################################################################################
+if __name__ == "__main__":
+    import doctest
+
+    print
+    result = doctest.testmod()
+    if not result.failed:
+        print "ALL TESTS PASSED. GOOD WORK!"
+    print
