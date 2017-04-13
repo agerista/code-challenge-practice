@@ -47,13 +47,6 @@ def reverse_linked_list(head):
 
     return previous
 
-
-            # previous = current
-            # current = previous
-            # next = current
-            # current = next
-
-
 ################################################################################
 if __name__ == "__main__":
     import doctest
