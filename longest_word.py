@@ -63,8 +63,23 @@ def longest_word2(phrase):
     return count, len_list
 
 
+def longest_word_fancy(phrase):
+    """Return the length of the longest word in the a sentence
 
-# def rec_long_word
+    >>> longest_word("The quick brown fox jumped over the lazy dog")
+    6
+
+    >>> longest_word("May the force be with you")
+    5
+
+    >>> longest_word("What if we try a super-long word such as otorhinolaryngology")
+    19
+
+    """
+
+    phrase = sorted(phrase.split(), key=len)
+
+    return phrase[-1]
 
 ################################################################################
 if __name__ == "__main__":
