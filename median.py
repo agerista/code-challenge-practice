@@ -1,7 +1,6 @@
 def calculate_median_rating(businesses):
 
     new_list = []
-    half = len(new_list) / 2
 
     for business in businesses:
 
@@ -17,7 +16,7 @@ def calculate_median_rating(businesses):
 
     else:
 
-        return len(new_list - 1) + len(new_list) / 2
+        return len(new_list - 1) + len(new_list) / 2.0
 
 ################################################################################
 if __name__ == "__main__":

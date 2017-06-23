@@ -41,33 +41,6 @@ def fibonacci(n):
 
     return "The fibonacci of {} is {}".format(n, fib)
 
-
-def fibonacci_recursive(n1=0, n2=1):
-    """add numbers in a fibonacci sequence recursively
-
-    fibonacci(0) = 0
-    fibonacci(1) = 1
-    fibonacci(2) = (0+1) = 1
-    fibonacci(3) = (1+1) = 2
-
-    >>> fibonacci(4)
-    3
-
-    >>> fibonacci(5)
-    5
-
-    >>> fibonacci(6)
-    8
-    """
-
-    if n == 0:
-        return 0
-
-    else:
-        
-        return 3
-
-
 ################################################################################
 if __name__ == "__main__":
     import doctest

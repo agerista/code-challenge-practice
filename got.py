@@ -20,6 +20,7 @@ def possible_palindromes(astr):
 
     pal = {}
     final = []
+    odds = 0
 
     for letter in astr:
 
