@@ -1,7 +1,7 @@
 function flattenNestedArrays(arr) {
   
-  
-  
+  // flattens arbitrarily nested arrays
+
   var result = [];
   var stack = arr;
   var temp;
@@ -9,10 +9,10 @@ function flattenNestedArrays(arr) {
   while (stack.length > 0) {
     temp = stack.shift();
     if (Array.isArray(temp)) {
-      [].unshift.apply(stack, temp)
+      [].unshift.apply(stack, temp);
     }
     else {
-      result.push(temp)
+      result.push(temp);
     }
   }
   return result;
