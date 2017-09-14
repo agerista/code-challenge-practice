@@ -1,6 +1,9 @@
 """Generate Markov text from text files."""
 
+import os
+import sys
 from random import choice
+import tweepy
 
 
 def open_and_read_file(file_path):
@@ -10,9 +13,14 @@ def open_and_read_file(file_path):
     the file's contents as one string of text.
     """
 
-    text_string = open(file_path, "r")
+    text = ""
 
-    return text_string.read()
+    for file in file_path:
+        text_string = open(file)
+        text = text + text_string.read()
+        text_string.close()
+
+    return text
 
 
 def make_chains(text_string):
@@ -61,32 +69,54 @@ def make_chains(text_string):
 
 
 def make_text(chains):
-    """Return text from chains."""
+    """Return text from chains"""
 
-    words = []
-    i = 1
+    next = True
 
-    start = choice(chains.keys())
-    words.append(start[0])
-    words.append(start[1])
-    link = choice(chains[start])
-    words.append(link)
+    # Choose a starting point for the Markov chain
+    key = choice(chains.keys())
+    words = [key[0], key[1]]
+    link = choice(chains[key])
 
-    while words[-3:] != ['Sam', 'I', 'am']:
+    while next:
 
-        key = (words[i], words[i + 1])
-        link = choice(chains[key])
         words.append(link)
+        key = (key[1], link)
+        link = choice(chains[key])
         next_key = (key[1], link)
+
+        # If there is no next key, stop generating text
         if chains.get(next_key, 0) == 0:
-            break
-        else:
-            i += 1
+            next = False
 
-    return " ".join(words)
+    # Make the text tweet length
+    words.append(link)
+    customize = " ".join(words)
+    tweet = customize[:140]
+
+    return tweet
 
 
-input_path = "green-eggs.txt"
+def post_to_twitter(tweet):
+    """limit chains to 140 characters"""
+
+    # Twitter credentials
+    consumer_key = os.environ['TWITTER_CONSUMER_KEY']
+    consumer_secret = os.environ['TWITTER_CONSUMER_SECRET']
+    access_token = os.environ['TWITTER_ACCESS_TOKEN']
+    access_token_secret = os.environ['TWITTER_ACCESS_TOKEN_SECRET']
+
+    # OAuth process
+    auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    auth.set_access_token(access_token, access_token_secret)
+
+    api = tweepy.API(auth)
+
+    # TWEET!!!
+    return api.update_status(tweet)
+
+
+input_path = sys.argv[1:]
 
 # Open the file and turn it into one long string
 input_text = open_and_read_file(input_path)
@@ -96,5 +126,9 @@ chains = make_chains(input_text)
 
 # Produce random text
 random_text = make_text(chains)
-
 print random_text
+
+# Post tweet to twitter
+twit = post_to_twitter(random_text)
+
+print twit
