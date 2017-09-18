@@ -15,6 +15,7 @@ AWESOMENESS = [
 ]
 
 
+
 @app.route('/')
 def start_here():
     """Display homepage."""
@@ -46,16 +47,61 @@ def greet_person():
                            compliment=compliment)
 
 
-@app.route('/game')
+@app.route('/game', methods=['GET', 'POST'])
 def play_madlibs():
     """Madlibs Game"""
 
-    final = madlibs_scripts()
-    game = get_input_fields(final)
+    text = madlibs_scripts()
+    title = text[0]
+    script = text[1].strip().split()
+    # print script
+    game = get_input_fields(text)
+    print game
+    fields = {}
+    i = 0
 
-    return render_template("game.html", game=game)
+    if request.method == 'GET':
+        return render_template("game.html", game=game)
+
+    elif request.method == 'POST':
+        for key, value in game.iteritems():
+            fields[key] = key
+            fields[key] = []
+            for item in range(0, value):
+                num = str(item + 1)
+                field = request.form.get(key + "-" + num)
+                fields[key].append(field)
+
+        for word in script:
+            if fields.get(word, 0) != 0:
+                script[i] = fields[word][0]
+                try:
+                    fields[word] = fields[word][1:]
+                except KeyError:
+                    "No key found"
+            i += 1
 
 
+
+        print script
+
+        return render_template("game.html", game=game, script=script)
+
+# @app.route('/game')
+# def madlibs_results():
+#     """Funny results ensue"""
+
+    
+    # TODO: get fields from form and plug them into the script 
+
+    # results = request.form.get("h3")
+
+    # for result in results:
+    #     print result
+
+    
+
+    
 if __name__ == "__main__":
 
     # We have to set debug=True here, since it has to be True at the
