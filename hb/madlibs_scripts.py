@@ -50,6 +50,7 @@ def get_input_fields(madlib):
             continue
 
         elif word.isupper():
+
             if inputs.get(word, 0) == 0:
                 inputs[word] = 1
 
