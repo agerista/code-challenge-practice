@@ -3,24 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <title>Madlibs Game</title>
+    <link rel="stylesheet"
+      href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css"/>
+      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+      <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./static/madlibs.css"/>
 </head>
 <body>
 	<div class="container-fluid">
-		<form action="/game" method="POST">
+		
+			<div class="header">
 	    	<h1>Welcome to Madlibs!</h1>
-	    		
-				{% for key, value in game.iteritems() %}
-				 	<h3>{{ key }}: {{ value }}</h3>
-		    		{% for item in range(0, value) %}
-		    			<div class="row">
-		    				<input type="text" name="{{ key }}-{{ item + 1 }}" placeholder="{{ key }}-{{ item + 1 }}">
-		    			</div>
-		    		{% endfor %}
-				{% endfor %}
-				<button type="submit">Submit</button>
-	    </form>
-	    {{ title }}
-	    {{ script }}
-	</div>
+	    </div>
+	    <div class="madlibs-form">
+		  <form action="/game" method="POST">	
+					{% for key, value in game.iteritems() %}
+					 	<h3>{{ key }}S</h3>
+			    		{% for item in range(0, value) %}
+			    			<div class="row">
+			    				<div class="text-inputs">
+				    				<input type="text" name="{{ key }}-{{ item + 1 }}" placeholder="{{ key }}-{{ item + 1 }}">
+				    			</div>
+			    			</div>
+			    		{% endfor %}
+					{% endfor %}
+					<button type="submit">Submit</button>
+		    </form>
+		    {{ title }}
+		    {{ script }}
+		 </div><!-- madlibs form -->
+	</div><!-- container fluid  -->
 </body>
 </html>

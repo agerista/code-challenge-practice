@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+	background-color: #202020;
+}
+
+.header {
+	position: relative;
+	text-align: center;
+	top: 15px;
+  background-color: #5261B1;
+  border: 3px solid #A9B0D8;
+  width: 100%;
+  color: #a9b0d8;
+}
+
+.madlibs-form {
+	position: absolute;
+  top: 125px;
+  left: 492px;
+  width: 573px;
+  padding: 10px 150px;
+  border: 2px solid #A9B0D8;
+  color: #a9b0d8;
+}
+
+h3 {
+	margin: 15px 40px;
+}
+
+.text-inputs {
+	margin: 0 50px;
+}
+
+input {
+  border: 1px solid #a9b0d8;
+  padding: 5px;
+  width: 100%;
+}
+
+input::placeholder {
+  color: #a9b0d8;
+}
+
+button {
+	margin: 20px 100px;
+}
