@@ -12,7 +12,7 @@ def madlibs_scripts():
         NOUN sharpener, so please ADVERB VERB more when you VERB back. \nYour RELATIVE, \nPERSON-IN-ROOM",
 
         "Love Letter":
-        "Dear TERM-OF-ENDEARMENT, \n When I VERB you for the first time, I couldn't ever have VERB(ED) that your\
+        "Dear TERM-OF-ENDEARMENT,\nWhen I VERB you for the first time, I couldn't ever have VERB(ED) that your\
         almost ADJECTIVE face, which holds a(n) ADJECTIVE and ADJECTIVE smile, was going to VERB me the way\
         it did. It has been a long time, do you remember? However, this ADJECTIVE ADJECTIVE that I VERB for you,\
         and which I dare call love is something very ADJECTIVE and ADJECTIVE. It is renewed every UNIT-OF-TIME\
@@ -24,7 +24,7 @@ def madlibs_scripts():
         your BODY-PART, or merely in the ADJECTIVE touch of your BODY-PART where I rest my BODY-PART and travel through\
         an ideal space, a space where everything is ADJECTIVE, where everything is ADJECTIVE and ADJECTIVE. A space\
         where everything is love, it is in this route that I travel and it is on you that I VERB, at last.\
-        \nA kiss from your \nTERM-OF-ENDEARMENT",
+        \nA kiss from your\nTERM-OF-ENDEARMENT",
 
         "Advice":
         "Driving a car can be fun if you follow this ADJECTIVE advice: When approaching a NOUN on the right,\

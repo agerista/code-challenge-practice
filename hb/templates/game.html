@@ -1,25 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Madlibs Game</title>
-    <link rel="stylesheet"
-      href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.css"/>
-      <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-      <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-      <link rel="stylesheet" type="text/css" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="./static/madlibs.css"/>
-</head>
-<body>
-	<div class="container-fluid">
-		
-			<div class="header">
-	    	<h1>Welcome to Madlibs!</h1>
-	    </div>
+{% extends 'madlibs-base.html' %}
+	{% block content %}
+
 	    <div class="madlibs-form">
-		  <form action="/game" method="POST">	
+		  <form action="/results" method="POST">	
 					{% for key, value in game.iteritems() %}
-					 	<h3>{{ key }}S</h3>
+					 	<h3>{{ key }}:</h3>
 			    		{% for item in range(0, value) %}
 			    			<div class="row">
 			    				<div class="text-inputs">
@@ -30,9 +15,5 @@
 					{% endfor %}
 					<button type="submit">Submit</button>
 		    </form>
-		    {{ title }}
-		    {{ script }}
 		 </div><!-- madlibs form -->
-	</div><!-- container fluid  -->
-</body>
-</html>
+ 	{% endblock %}

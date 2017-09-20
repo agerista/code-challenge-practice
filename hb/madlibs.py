@@ -61,7 +61,7 @@ def play_madlibs():
     return render_template("game.html", game=game)
 
 
-@app.route('/game', methods=['POST'])
+@app.route('/results', methods=['POST'])
 def madlibs_results():
     """Funny results ensue"""
 
@@ -112,7 +112,7 @@ def madlibs_results():
 
     script = " ".join(script)
 
-    return render_template("game.html", game=game, script=script, title=title)
+    return render_template("results.html", game=game, script=script, title=title)
 
 ###############################################################################################
 if __name__ == "__main__":
